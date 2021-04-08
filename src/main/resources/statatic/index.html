@@ -1,0 +1,67 @@
+<html>
+<head>
+    <title>Titulo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script><!-- Jquery -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script><!-- Axios -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"><!-- Bootstrap -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script><!-- Bootstrap -->
+    <script type="text/javascript" src="js/apiclient.js" ></script><!-- Mi js -->
+    <script
+            src="https://maps.googleapis.com/maps/api/js?
+            key=AIzaSyAlGl_JpjPK9qx8ZosvnTzPBmbEqOxltQU&
+            map_ids=f2eab58da57af0cd&callback=apiclient.initMap">
+    </script>
+    <style>
+        #map {
+            height: 50vh;
+            margin-top: 25px;
+        }
+    </style>
+</head>
+<body onload="apiclient.firstPage()">
+<div class="container">
+    <h1>App clima </h1>
+    <div class="container">
+        <div class="col-xs-2">
+            <input type="text" id="city"  required placeholder="nombre de la ciudad">
+        </div>
+        <div class="col-xs-2">
+            <button type="button" id="submit" onclick="apiclient.weatherByCity()">Buscar</button>
+        </div>
+    </div>
+    <div class="container" id="general">
+        <div class="row"><h2 id="cityname"></h2></div>
+        <div class="row"><p id="temperature"></p></div>
+        <div class="row"><p id="main"></p></div>
+    </div>
+    <div class="container" id="specific">
+        <div class="row">
+            <table id="table1" class="table table-fixed">
+                <thead>
+                <tr>
+                    <th class='col-xs-2'>Velocidad del viento</th>
+                    <th class='col-xs-2'>Visibilidad</th>
+                    <th class='col-xs-2'>Humedad</th>
+                    <th class='col-xs-2'>Presión</th>
+                </tr>
+                </thead>
+                <tbody id="tablebody">
+                <tr>
+                    <td class='col-xs-2' id="windspeed"></td>
+                    <td class='col-xs-2' id="visibility"></td>
+                    <td class='col-xs-2' id="humidity"></td>
+                    <td class='col-xs-2' id="pressure"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="container">
+        <div id="map">
+        </div>
+    </div>
+</div>
+</body>
+</html>
